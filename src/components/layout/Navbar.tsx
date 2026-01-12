@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Gavel } from 'lucide-react';
+import { Menu, Gavel } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { ThemeToggle } from '@/components/ThemeToggle';
 const NAV_LINKS = [
   { name: 'Home', path: '/' },
+  { name: 'Services', path: '/services' },
+  { name: 'About', path: '/about' },
   { name: 'Insights', path: '/blog' },
-  { name: 'Services', path: '/#services' },
-  { name: 'About', path: '/#about' },
 ];
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -45,11 +45,19 @@ export function Navbar() {
                 key={link.path}
                 to={link.path}
                 className={cn(
-                  'text-sm font-medium transition-colors hover:text-primary',
-                  location.pathname === link.path ? 'text-primary' : 'text-muted-foreground'
+                  'text-sm font-medium transition-colors hover:text-primary relative py-1',
+                  location.pathname === link.path 
+                    ? 'text-primary' 
+                    : 'text-muted-foreground'
                 )}
               >
                 {link.name}
+                {location.pathname === link.path && (
+                  <motion.div 
+                    layoutId="nav-underline"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
+                  />
+                )}
               </Link>
             ))}
             <div className="flex items-center gap-4 pl-4 border-l border-border">
@@ -74,7 +82,10 @@ export function Navbar() {
                     <Link
                       key={link.path}
                       to={link.path}
-                      className="text-2xl font-semibold hover:text-primary transition-colors"
+                      className={cn(
+                        "text-2xl font-semibold hover:text-primary transition-colors",
+                        location.pathname === link.path ? "text-primary" : "text-foreground"
+                      )}
                     >
                       {link.name}
                     </Link>
@@ -89,3 +100,4 @@ export function Navbar() {
     </nav>
   );
 }
+import { motion } from 'framer-motion';

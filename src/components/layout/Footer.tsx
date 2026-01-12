@@ -34,10 +34,10 @@ export function Footer() {
           <div className="space-y-6">
             <h4 className="text-white font-semibold">Expertise</h4>
             <ul className="space-y-4 text-sm">
-              <li><Link to="/#services" className="hover:text-white transition-colors">Corporate Governance</Link></li>
-              <li><Link to="/#services" className="hover:text-white transition-colors">Digital Assets & AI</Link></li>
-              <li><Link to="/#services" className="hover:text-white transition-colors">Litigation & Arbitration</Link></li>
-              <li><Link to="/#services" className="hover:text-white transition-colors">Mergers & Acquisitions</Link></li>
+              <li><Link to="/services" className="hover:text-white transition-colors">Corporate Governance</Link></li>
+              <li><Link to="/services" className="hover:text-white transition-colors">Digital Assets & AI</Link></li>
+              <li><Link to="/services" className="hover:text-white transition-colors">Litigation & Arbitration</Link></li>
+              <li><Link to="/services" className="hover:text-white transition-colors">Mergers & Acquisitions</Link></li>
             </ul>
           </div>
           {/* Contact */}
@@ -63,9 +63,9 @@ export function Footer() {
             <h4 className="text-white font-semibold">Stay Informed</h4>
             <p className="text-sm">Weekly insights on the evolving global legal landscape.</p>
             <div className="flex flex-col gap-2">
-              <Input 
-                className="bg-slate-900 border-slate-800 text-white placeholder:text-slate-600 focus-visible:ring-primary" 
-                placeholder="Email address" 
+              <Input
+                className="bg-slate-900 border-slate-800 text-white placeholder:text-slate-600 focus-visible:ring-primary"
+                placeholder="Email address"
               />
               <Button className="w-full bg-white text-black hover:bg-slate-200">
                 Subscribe
@@ -74,10 +74,10 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-16 pt-8 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
-          <p>© 2024 LexCorp Global Partners LLP. All rights reserved.</p>
+          <p>�� 2024 LexCorp Global Partners LLP. All rights reserved.</p>
           <div className="flex gap-6">
-            <Link to="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link to="#" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link to="/about" className="hover:text-white transition-colors">About Firm</Link>
             <Link to="#" className="hover:text-white transition-colors">Attorney Advertising</Link>
           </div>
         </div>

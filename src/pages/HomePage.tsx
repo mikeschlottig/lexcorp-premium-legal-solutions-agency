@@ -17,8 +17,8 @@ export function HomePage() {
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1600&q=80" 
+          <img
+            src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1600&q=80"
             className="w-full h-full object-cover"
             alt="Corporate Conference Room"
           />
@@ -26,7 +26,7 @@ export function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -45,8 +45,8 @@ export function HomePage() {
               <Button size="lg" className="px-8 h-14 text-lg rounded-full">
                 Schedule Consultation
               </Button>
-              <Button size="lg" variant="outline" className="px-8 h-14 text-lg rounded-full bg-white/5 text-white border-white/20 hover:bg-white/10">
-                Our Practice Areas
+              <Button size="lg" variant="outline" asChild className="px-8 h-14 text-lg rounded-full bg-white/5 text-white border-white/20 hover:bg-white/10">
+                <Link to="/services">Our Practice Areas</Link>
               </Button>
             </div>
           </motion.div>
@@ -66,7 +66,7 @@ export function HomePage() {
       {/* Services Section */}
       <section id="services" className="py-24 md:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader 
+          <SectionHeader
             title="Elite Legal Expertise"
             subtitle="Our multidisciplinary teams provide sophisticated advice across all major sectors of commercial activity."
           />
@@ -90,7 +90,7 @@ export function HomePage() {
                       <p className="text-muted-foreground leading-relaxed mb-6">
                         {service.description}
                       </p>
-                      <Link to="#" className="inline-flex items-center text-primary font-semibold hover:gap-2 transition-all">
+                      <Link to="/services" className="inline-flex items-center text-primary font-semibold hover:gap-2 transition-all">
                         Learn More <ArrowRight className="ml-2 w-4 h-4" />
                       </Link>
                     </CardContent>
@@ -131,7 +131,7 @@ export function HomePage() {
             </div>
             <div className="grid gap-8">
               {TESTIMONIALS.map((t, idx) => (
-                <motion.div 
+                <motion.div
                   key={t.id}
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -158,7 +158,7 @@ export function HomePage() {
       <section className="py-24 md:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
-            <SectionHeader 
+            <SectionHeader
               title="Global Insights"
               subtitle="Latest perspectives on law, policy, and market dynamics."
               alignment="left"
@@ -175,9 +175,9 @@ export function HomePage() {
               <Link key={post.id} to={`/blog/${post.id}`}>
                 <Card className="group h-full overflow-hidden border-none shadow-soft hover:shadow-xl transition-all">
                   <div className="aspect-video overflow-hidden">
-                    <img 
-                      src={post.image} 
-                      alt={post.title} 
+                    <img
+                      src={post.image}
+                      alt={post.title}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
@@ -204,8 +204,8 @@ export function HomePage() {
           <p className="text-xl text-primary-foreground/80 mb-12 max-w-2xl mx-auto">
             Contact us today for a confidential consultation with our senior partners.
           </p>
-          <Button size="lg" variant="secondary" className="px-12 h-16 text-lg rounded-full shadow-2xl">
-            Book Appointment
+          <Button size="lg" variant="secondary" asChild className="px-12 h-16 text-lg rounded-full shadow-2xl">
+            <Link to="/about">Our Story</Link>
           </Button>
         </div>
       </section>
