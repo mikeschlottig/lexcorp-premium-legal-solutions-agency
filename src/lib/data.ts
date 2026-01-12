@@ -2,7 +2,9 @@ export interface Service {
   id: string;
   title: string;
   description: string;
+  longDescription?: string;
   icon: string;
+  features?: string[];
 }
 export interface Testimonial {
   id: string;
@@ -25,25 +27,125 @@ export interface BlogPost {
     avatar: string;
   };
 }
+export interface TeamMember {
+  id: string;
+  name: string;
+  role: string;
+  expertise: string;
+  bio: string;
+  image: string;
+  socials: {
+    linkedin?: string;
+    twitter?: string;
+  };
+}
+export interface CaseStudy {
+  id: string;
+  title: string;
+  client: string;
+  brief: string;
+  outcome: string;
+  image: string;
+}
 export const SERVICES: Service[] = [
   {
     id: 'corporate-law',
     title: 'Corporate Law',
     description: 'Expert guidance on mergers, acquisitions, and day-to-day corporate governance for global enterprises.',
+    longDescription: 'Our corporate practice is the cornerstone of the firm, representing a diverse client base ranging from multinational corporations to emerging growth companies. We provide comprehensive legal support through every stage of the business lifecycle.',
     icon: 'Briefcase',
+    features: [
+      'Mergers & Acquisitions',
+      'Corporate Governance',
+      'Venture Capital & Private Equity',
+      'Joint Ventures & Strategic Alliances',
+      'Public & Private Offerings'
+    ]
   },
   {
     id: 'intellectual-property',
     title: 'Intellectual Property',
     description: 'Securing your innovations with robust patent, trademark, and copyright protection strategies.',
+    longDescription: 'In a knowledge-based economy, protecting your intellectual capital is paramount. Our IP group combines deep technical expertise with legal acumen to safeguard your most valuable intangible assets across global jurisdictions.',
     icon: 'ShieldCheck',
+    features: [
+      'Patent Prosecution & Litigation',
+      'Trademark Portfolio Management',
+      'Copyright Protection',
+      'Trade Secret Counseling',
+      'Licensing & Technology Transfer'
+    ]
   },
   {
     id: 'dispute-resolution',
     title: 'Dispute Resolution',
     description: 'Strategic litigation and alternative dispute resolution services to protect your commercial interests.',
+    longDescription: 'When conflicts arise, we prioritize strategic resolution that aligns with your business objectives. Whether through aggressive litigation or sophisticated alternative dispute resolution, we protect your interests in the most complex forums.',
     icon: 'Scale',
+    features: [
+      'Commercial Litigation',
+      'International Arbitration',
+      'White-Collar Defense',
+      'Crisis Management',
+      'Employment Disputes'
+    ]
   },
+];
+export const TEAM_MEMBERS: TeamMember[] = [
+  {
+    id: 'elena-vance',
+    name: 'Elena Vance',
+    role: 'Senior Partner',
+    expertise: 'Technology & IP Law',
+    bio: 'With over 20 years of experience, Elena has pioneered legal frameworks for emerging technologies. She serves as a strategic advisor to Fortune 100 tech giants.',
+    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop',
+    socials: { linkedin: '#', twitter: '#' }
+  },
+  {
+    id: 'julian-thorne',
+    name: 'Julian Thorne',
+    role: 'Head of Corporate',
+    expertise: 'Cross-Border M&A',
+    bio: 'Julian specializes in multi-jurisdictional transactions and corporate restructuring. He has overseen deals exceeding $50 billion in total value.',
+    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop',
+    socials: { linkedin: '#' }
+  },
+  {
+    id: 'marcus-reid',
+    name: 'Marcus Reid',
+    role: 'Partner',
+    expertise: 'Litigation & Arbitration',
+    bio: 'A formidable presence in the courtroom, Marcus represents clients in high-stakes commercial disputes and international arbitration cases.',
+    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop',
+    socials: { twitter: '#' }
+  },
+  {
+    id: 'sophia-chen',
+    name: 'Sophia Chen',
+    role: 'Senior Counsel',
+    expertise: 'Global Compliance',
+    bio: 'Sophia leads our regulatory compliance division, ensuring clients navigate the complex landscape of international trade and data privacy laws.',
+    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop',
+    socials: { linkedin: '#' }
+  }
+];
+export const CASE_STUDIES: CaseStudy[] = [
+  {
+    id: 'tech-merger-2024',
+    title: 'Global Tech Merger',
+    client: 'Stellar Systems Inc.',
+    brief: 'Navigated complex regulatory hurdles across 12 jurisdictions to facilitate a $4.2B merger.',
+    outcome: 'Successful closing within 8 months with all regulatory approvals secured.',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80'
+  },
+  {
+    id: 'ip-defense-2023',
+    title: 'Biotech IP Defense',
+    client: 'Genomix Labs',
+    brief: 'Defended critical gene-editing patents against a multi-national infringement challenge.',
+    outcome: 'Complete victory in federal court, securing patents and $120M in damages.',
+    image: 'https://images.unsplash.com/photo-1532187863486-abf9d39d99f5?w=800&q=80'
+  }
 ];
 export const TESTIMONIALS: Testimonial[] = [
   {

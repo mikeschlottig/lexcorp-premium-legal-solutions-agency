@@ -15,6 +15,9 @@ import { App } from '@/App'
 import { HomePage } from '@/pages/HomePage'
 import { BlogIndex } from '@/pages/BlogIndex'
 import { BlogPost } from '@/pages/BlogPost'
+import { ServicesPage } from '@/pages/ServicesPage'
+import { AboutPage } from '@/pages/AboutPage'
+import { PrivacyPage } from '@/pages/PrivacyPage'
 const queryClient = new QueryClient();
 const router = createBrowserRouter([
   {
@@ -25,6 +28,9 @@ const router = createBrowserRouter([
       { path: "/", element: <HomePage /> },
       { path: "/blog", element: <BlogIndex /> },
       { path: "/blog/:id", element: <BlogPost /> },
+      { path: "/services", element: <ServicesPage />, errorElement: <RouteErrorBoundary /> },
+      { path: "/about", element: <AboutPage />, errorElement: <RouteErrorBoundary /> },
+      { path: "/privacy", element: <PrivacyPage />, errorElement: <RouteErrorBoundary /> },
     ]
   },
 ]);
