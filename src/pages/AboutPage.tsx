@@ -10,161 +10,168 @@ export function AboutPage() {
   return (
     <div className="w-full">
       {/* About Hero */}
-      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 bg-white overflow-hidden">
+      <section className="relative pt-32 pb-24 md:pt-48 md:pb-40 bg-white dark:bg-transparent overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.8 }}
             >
-              <span className="text-primary font-bold tracking-widest uppercase text-sm mb-4 block">Our Heritage</span>
-              <h1 className="text-4xl md:text-6xl font-bold text-slate-950 mb-6 leading-tight">Defining Legal Excellence Since 1994</h1>
-              <p className="text-xl text-slate-600 mb-8 leading-relaxed">
-                Founded on the principles of integrity and tactical precision, LexCorp has grown from a boutique practice to a global powerhouse in commercial law.
+              <span className="text-[#B45309] font-bold tracking-[0.3em] uppercase text-xs mb-6 block">Legacy of Excellence</span>
+              <h1 className="text-4xl md:text-7xl font-serif font-bold text-slate-950 dark:text-white mb-8 leading-[1.05]">Defining Legal <br/> Mastery Since 1994</h1>
+              <p className="text-xl text-slate-600 dark:text-slate-400 mb-10 leading-relaxed font-light">
+                Built on the foundation of absolute integrity and tactical precision, LexCorp has evolved from a boutique NYC practice to a premier global authority in commercial law.
               </p>
-              <div className="flex gap-8 border-t pt-8">
+              <div className="flex gap-12 border-t border-border/50 pt-10">
                 <div>
-                  <h4 className="text-3xl font-bold text-primary">30+</h4>
-                  <p className="text-sm text-slate-500 uppercase tracking-wider font-semibold">Years Experience</p>
+                  <h4 className="text-4xl font-serif font-bold text-[#B45309]">30+</h4>
+                  <p className="text-[10px] text-slate-500 uppercase tracking-[0.2em] font-bold mt-2">Years History</p>
                 </div>
                 <div>
-                  <h4 className="text-3xl font-bold text-primary">12</h4>
-                  <p className="text-sm text-slate-500 uppercase tracking-wider font-semibold">Global Offices</p>
+                  <h4 className="text-4xl font-serif font-bold text-[#B45309]">12</h4>
+                  <p className="text-[10px] text-slate-500 uppercase tracking-[0.2em] font-bold mt-2">Global Hubs</p>
                 </div>
                 <div>
-                  <h4 className="text-3xl font-bold text-primary">500+</h4>
-                  <p className="text-sm text-slate-500 uppercase tracking-wider font-semibold">Major Wins</p>
+                  <h4 className="text-4xl font-serif font-bold text-[#B45309]">500+</h4>
+                  <p className="text-[10px] text-slate-500 uppercase tracking-[0.2em] font-bold mt-2">Market Wins</p>
                 </div>
               </div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              className="relative aspect-square rounded-[40px] overflow-hidden shadow-2xl"
+              transition={{ duration: 1 }}
+              className="relative aspect-square rounded-[4rem] overflow-hidden shadow-2xl border border-border/50"
             >
-              <img 
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" 
-                className="w-full h-full object-cover" 
+              <img
+                src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80"
+                className="w-full h-full object-cover transition-transform duration-[3s] hover:scale-105"
                 alt="Law Firm Office"
               />
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#0F172A]/40 to-transparent" />
             </motion.div>
           </div>
         </div>
       </section>
       {/* Core Values */}
-      <section className="py-24 md:py-32 bg-accent/30">
+      <section className="py-24 md:py-40 bg-slate-50 dark:bg-slate-900/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader 
-            title="The Values That Guide Us" 
-            subtitle="Our culture is defined by a relentless pursuit of perfection and a deep commitment to our clients' long-term prosperity."
+          <SectionHeader
+            title="Our Principles"
+            subtitle="Our institutional culture is defined by an uncompromising pursuit of perfection and a generational commitment to client prosperity."
           />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[
-              { icon: Target, title: 'Unwavering Precision', desc: 'We leave no detail unexamined, ensuring every strategy is airtight and effective.' },
-              { icon: Heart, title: 'Client Partnership', desc: 'We don’t just serve clients; we become an extension of their strategic leadership.' },
-              { icon: Shield, title: 'Absolute Integrity', desc: 'Trust is our foundation. We maintain the highest ethical standards in all we do.' }
+              { icon: Target, title: 'Tactical Precision', desc: 'No detail is left unexamined. We engineer airtight legal strategies that withstand the most rigorous scrutiny.' },
+              { icon: Heart, title: 'Strategic Partnership', desc: 'We operate as a seamless extension of our clients’ executive leadership, aligning every action with long-term goals.' },
+              { icon: Shield, title: 'Absolute Discretion', desc: 'Trust is our core currency. We maintain the highest levels of confidentiality and ethical standards globally.' }
             ].map((value, i) => (
-              <Card key={i} className="border-none shadow-soft p-8 text-center bg-white hover:-translate-y-2 transition-transform">
-                <div className="w-16 h-16 rounded-full bg-primary/10 text-primary flex items-center justify-center mx-auto mb-6">
-                  <value.icon className="w-8 h-8" />
+              <Card key={i} className="border-none shadow-soft p-12 text-center bg-white dark:bg-slate-900 hover:-translate-y-4 transition-all duration-500 rounded-[3rem] group">
+                <div className="w-20 h-20 rounded-[2rem] bg-[#B45309]/10 text-[#B45309] flex items-center justify-center mx-auto mb-10 group-hover:bg-[#B45309] group-hover:text-white transition-all duration-300 transform group-hover:rotate-6">
+                  <value.icon className="w-10 h-10" />
                 </div>
-                <h3 className="text-2xl font-bold mb-4">{value.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{value.desc}</p>
+                <h3 className="text-2xl font-serif font-bold mb-6">{value.title}</h3>
+                <p className="text-muted-foreground leading-relaxed font-light">{value.desc}</p>
               </Card>
             ))}
           </div>
         </div>
       </section>
-      {/* Leadership Team */}
-      <section className="py-24 md:py-32">
+      {/* Leadership */}
+      <section className="py-24 md:py-40 bg-white dark:bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader 
-            title="Our Leadership" 
-            subtitle="Meet the senior partners driving global legal innovation."
+          <SectionHeader
+            title="Our Leadership"
+            subtitle="Meet the senior partners directing LexCorp's global practice areas and legal innovation labs."
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
             {TEAM_MEMBERS.map((member) => (
               <motion.div
                 key={member.id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
                 className="group"
               >
-                <div className="relative aspect-[4/5] rounded-3xl overflow-hidden mb-6">
-                  <img src={member.image} alt={member.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
+                <div className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden mb-8 shadow-lg">
+                  <img src={member.image} alt={member.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-transparent to-transparent opacity-0 group-hover:opacity-90 transition-all duration-500 flex flex-col justify-end p-8">
                     <div className="flex gap-4">
                       {member.socials.linkedin && (
-                        <a href={member.socials.linkedin} className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition-colors">
-                          <Linkedin className="w-5 h-5" />
+                        <a href={member.socials.linkedin} className="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-[#B45309] transition-all">
+                          <Linkedin className="w-6 h-6" />
                         </a>
                       )}
                       {member.socials.twitter && (
-                        <a href={member.socials.twitter} className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition-colors">
-                          <Twitter className="w-5 h-5" />
+                        <a href={member.socials.twitter} className="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-[#B45309] transition-all">
+                          <Twitter className="w-6 h-6" />
                         </a>
                       )}
                     </div>
                   </div>
                 </div>
-                <h3 className="text-xl font-bold">{member.name}</h3>
-                <p className="text-primary font-semibold text-sm mb-2">{member.role}</p>
-                <p className="text-muted-foreground text-xs uppercase tracking-widest font-bold mb-4">{member.expertise}</p>
-                <p className="text-sm text-muted-foreground line-clamp-3">{member.bio}</p>
+                <h3 className="text-2xl font-serif font-bold mb-1">{member.name}</h3>
+                <p className="text-[#B45309] font-bold text-sm mb-3 tracking-tight">{member.role}</p>
+                <p className="text-[10px] text-muted-foreground uppercase tracking-[0.2em] font-black mb-5">{member.expertise}</p>
+                <p className="text-sm text-muted-foreground line-clamp-3 leading-relaxed font-light">{member.bio}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
-      {/* Global Offices */}
-      <section className="py-24 md:py-32 bg-slate-950 text-white overflow-hidden">
+      {/* Global Presence */}
+      <section className="py-24 md:py-40 bg-[#0F172A] text-white overflow-hidden border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-3xl md:text-5xl font-bold mb-8">Global Reach. <br/> Local Expertise.</h2>
-              <p className="text-slate-400 text-lg mb-12">With offices in the world's major financial and tech hubs, we provide seamless cross-border legal support wherever your business takes you.</p>
-              <div className="grid grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+            <div className="space-y-12">
+              <h2 className="text-4xl md:text-6xl font-serif font-bold leading-tight">Global Reach. <br/> <span className="text-[#B45309]">Local Mastery.</span></h2>
+              <p className="text-slate-400 text-xl font-light leading-relaxed">Headquartered in New York with strategic outposts in the world's most vital financial and tech hubs, we deliver seamless cross-border legal excellence.</p>
+              <div className="grid grid-cols-2 gap-12">
                 <div>
-                  <h4 className="text-white font-bold mb-2">North America</h4>
-                  <ul className="text-slate-500 text-sm space-y-2">
-                    <li>New York (HQ)</li>
-                    <li>Silicon Valley</li>
-                    <li>Washington D.C.</li>
+                  <h4 className="text-white font-serif font-bold text-lg mb-4 border-b border-white/10 pb-2">Americas</h4>
+                  <ul className="text-slate-500 text-sm space-y-3 font-semibold tracking-tight">
+                    <li className="hover:text-white transition-colors cursor-default">New York (Global HQ)</li>
+                    <li className="hover:text-white transition-colors cursor-default">Silicon Valley</li>
+                    <li className="hover:text-white transition-colors cursor-default">Washington D.C.</li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="text-white font-bold mb-2">Europe</h4>
-                  <ul className="text-slate-500 text-sm space-y-2">
-                    <li>London</li>
-                    <li>Berlin</li>
-                    <li>Paris</li>
+                  <h4 className="text-white font-serif font-bold text-lg mb-4 border-b border-white/10 pb-2">Europe</h4>
+                  <ul className="text-slate-500 text-sm space-y-3 font-semibold tracking-tight">
+                    <li className="hover:text-white transition-colors cursor-default">London</li>
+                    <li className="hover:text-white transition-colors cursor-default">Berlin</li>
+                    <li className="hover:text-white transition-colors cursor-default">Paris</li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="text-white font-bold mb-2">Asia-Pacific</h4>
-                  <ul className="text-slate-500 text-sm space-y-2">
-                    <li>Singapore</li>
-                    <li>Tokyo</li>
-                    <li>Hong Kong</li>
+                  <h4 className="text-white font-serif font-bold text-lg mb-4 border-b border-white/10 pb-2">Asia-Pacific</h4>
+                  <ul className="text-slate-500 text-sm space-y-3 font-semibold tracking-tight">
+                    <li className="hover:text-white transition-colors cursor-default">Singapore</li>
+                    <li className="hover:text-white transition-colors cursor-default">Tokyo</li>
+                    <li className="hover:text-white transition-colors cursor-default">Hong Kong</li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="text-white font-bold mb-2">Middle East</h4>
-                  <ul className="text-slate-500 text-sm space-y-2">
-                    <li>Dubai</li>
-                    <li>Riyadh</li>
+                  <h4 className="text-white font-serif font-bold text-lg mb-4 border-b border-white/10 pb-2">Middle East</h4>
+                  <ul className="text-slate-500 text-sm space-y-3 font-semibold tracking-tight">
+                    <li className="hover:text-white transition-colors cursor-default">Dubai</li>
+                    <li className="hover:text-white transition-colors cursor-default">Riyadh</li>
                   </ul>
                 </div>
               </div>
             </div>
-            <div className="relative">
-              <div className="aspect-square bg-white/5 rounded-full flex items-center justify-center p-12">
-                <div className="w-full h-full rounded-full border border-white/10 animate-[spin_20s_linear_infinite]" />
+            <div className="relative flex justify-center">
+              <div className="w-[400px] h-[400px] md:w-[600px] md:h-[600px] bg-[#B45309]/5 rounded-full flex items-center justify-center p-20 animate-[pulse_4s_infinite]">
+                <div className="w-full h-full rounded-full border border-[#B45309]/20 animate-[spin_40s_linear_infinite] flex items-center justify-center">
+                   <div className="w-4 h-4 bg-[#B45309] rounded-full absolute top-0" />
+                   <div className="w-4 h-4 bg-[#B45309] rounded-full absolute bottom-0" />
+                   <div className="w-4 h-4 bg-[#B45309] rounded-full absolute left-0" />
+                   <div className="w-4 h-4 bg-[#B45309] rounded-full absolute right-0" />
+                </div>
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <Globe className="w-32 h-32 text-primary opacity-50" />
+                  <Globe className="w-32 h-32 md:w-56 md:h-56 text-[#B45309] opacity-30" />
                 </div>
               </div>
             </div>
