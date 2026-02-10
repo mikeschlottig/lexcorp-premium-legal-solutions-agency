@@ -13,7 +13,7 @@ export function App() {
   }, [pathname]);
   return (
     <ConsultationProvider>
-      <div className="relative min-h-screen flex flex-col selection:bg-primary selection:text-primary-foreground">
+      <div className="relative min-h-screen flex flex-col overflow-x-hidden selection:bg-primary selection:text-primary-foreground">
         <Navbar />
         <main className="flex-grow">
           <Outlet />
