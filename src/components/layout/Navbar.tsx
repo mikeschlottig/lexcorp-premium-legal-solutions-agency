@@ -1,32 +1,38 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, Gavel, X } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
-import { ThemeToggle } from '@/components/ThemeToggle';
+import React, { useState, useEffect, useCallback } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
+import { Menu, Gavel } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { useConsultation } from "@/components/consultation/ConsultationContext";
 const NAV_LINKS = [
-  { name: 'Home', path: '/' },
-  { name: 'Services', path: '/services' },
-  { name: 'About', path: '/about' },
-  { name: 'Insights', path: '/blog' },
+  { name: "Home", path: "/" },
+  { name: "Services", path: "/services" },
+  { name: "About", path: "/about" },
+  { name: "Insights", path: "/blog" },
 ];
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const openConsultation = useConsultation().openConsultation;
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  const handleDesktopConsultation = useCallback(() => {
+    openConsultation({ source: "navbar-desktop" });
+  }, [openConsultation]);
+  const handleMobileConsultation = useCallback(() => {
+    openConsultation({ source: "navbar-mobile" });
+  }, [openConsultation]);
   return (
     <nav
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b',
-        isScrolled
-          ? 'bg-background/90 backdrop-blur-md py-3 border-border/80 shadow-sm'
-          : 'bg-transparent py-6 border-transparent'
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b",
+        isScrolled ? "bg-background/90 backdrop-blur-md py-3 border-border/80 shadow-sm" : "bg-transparent py-6 border-transparent",
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,10 +52,8 @@ export function Navbar() {
                 key={link.path}
                 to={link.path}
                 className={cn(
-                  'text-sm font-medium transition-all duration-300 hover:text-[#B45309] relative py-1',
-                  location.pathname === link.path
-                    ? 'text-foreground'
-                    : 'text-muted-foreground'
+                  "text-sm font-medium transition-all duration-300 hover:text-[#B45309] relative py-1",
+                  location.pathname === link.path ? "text-foreground" : "text-muted-foreground",
                 )}
               >
                 {link.name}
@@ -64,7 +68,11 @@ export function Navbar() {
             ))}
             <div className="flex items-center gap-4 pl-6 border-l border-border/50">
               <ThemeToggle className="static" />
-              <Button size="sm" className="rounded-full px-8 bg-[#B45309] hover:bg-[#92400E] text-white border-none shadow-soft hover:shadow-glow">
+              <Button
+                size="sm"
+                onClick={handleDesktopConsultation}
+                className="rounded-full px-8 bg-[#B45309] hover:bg-[#92400E] text-white border-none shadow-soft hover:shadow-glow"
+              >
                 Consultation
               </Button>
             </div>
@@ -74,7 +82,7 @@ export function Navbar() {
             <ThemeToggle className="static" />
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="hover:bg-accent/50 transition-colors">
+                <Button variant="ghost" size="icon" className="hover:bg-accent/50 transition-colors" aria-label="Open navigation menu">
                   <Menu className="w-6 h-6" />
                 </Button>
               </SheetTrigger>
@@ -86,7 +94,7 @@ export function Navbar() {
                         to={link.path}
                         className={cn(
                           "text-3xl font-serif font-bold transition-all duration-300 hover:pl-2 hover:text-[#B45309]",
-                          location.pathname === link.path ? "text-[#B45309]" : "text-foreground"
+                          location.pathname === link.path ? "text-[#B45309]" : "text-foreground",
                         )}
                       >
                         {link.name}
@@ -94,7 +102,7 @@ export function Navbar() {
                     </SheetClose>
                   ))}
                   <SheetClose asChild>
-                    <Button className="w-full mt-6 h-14 text-lg bg-[#B45309] hover:bg-[#92400E] rounded-2xl">
+                    <Button onClick={handleMobileConsultation} className="w-full mt-6 h-14 text-lg bg-[#B45309] hover:bg-[#92400E] rounded-2xl">
                       Book Consultation
                     </Button>
                   </SheetClose>

@@ -1,7 +1,12 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { createContext, useCallback, useContext, useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { ConsultationForm, type ConsultationMeta } from "@/components/ConsultationForm";
-import { ConsultationContext, type ConsultationContextValue } from "@/components/consultation/consultation-context";
+type ConsultationContextValue = {
+  openConsultation: (meta?: ConsultationMeta) => void;
+  closeConsultation: () => void;
+  isOpen: boolean;
+};
+const ConsultationContext = createContext<ConsultationContextValue | null>(null);
 export function ConsultationProvider({ children }: { children: React.ReactNode }): JSX.Element {
   const { pathname } = useLocation();
   const [isOpen, setIsOpen] = useState(false);
@@ -17,7 +22,6 @@ export function ConsultationProvider({ children }: { children: React.ReactNode }
         page,
         source: nextMeta?.source ?? "unknown",
         context: nextMeta?.context ?? null,
-        prefill: nextMeta?.prefill ?? null,
       });
     },
     [pathname],
@@ -43,4 +47,17 @@ export function ConsultationProvider({ children }: { children: React.ReactNode }
       <ConsultationForm open={isOpen} onOpenChange={handleOpenChange} page={openPage} meta={meta} />
     </ConsultationContext.Provider>
   );
+}
+export function useConsultation(): ConsultationContextValue {
+  const ctx = useContext(ConsultationContext);
+  if (!ctx) {
+    // Avoid throwing to prevent an uncaught crash; provide safe fallbacks while logging for observability.
+    console.error("[useConsultation] Hook used outside of ConsultationProvider.");
+    return {
+      openConsultation: () => {},
+      closeConsultation: () => {},
+      isOpen: false,
+    };
+  }
+  return ctx;
 }
