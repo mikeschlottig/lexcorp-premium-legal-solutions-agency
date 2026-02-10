@@ -34,10 +34,26 @@ export function Footer() {
           <div className="space-y-6">
             <h4 className="text-white font-semibold">Expertise</h4>
             <ul className="space-y-4 text-sm">
-              <li><Link to="/services" className="hover:text-white transition-colors">Corporate Governance</Link></li>
-              <li><Link to="/services" className="hover:text-white transition-colors">Digital Assets & AI</Link></li>
-              <li><Link to="/services" className="hover:text-white transition-colors">Litigation & Arbitration</Link></li>
-              <li><Link to="/services" className="hover:text-white transition-colors">Mergers & Acquisitions</Link></li>
+              <li>
+                <Link to="/services" className="hover:text-white transition-colors">
+                  Corporate Governance
+                </Link>
+              </li>
+              <li>
+                <Link to="/services" className="hover:text-white transition-colors">
+                  Digital Assets & AI
+                </Link>
+              </li>
+              <li>
+                <Link to="/services" className="hover:text-white transition-colors">
+                  Litigation & Arbitration
+                </Link>
+              </li>
+              <li>
+                <Link to="/services" className="hover:text-white transition-colors">
+                  Mergers & Acquisitions
+                </Link>
+              </li>
             </ul>
           </div>
           {/* Contact */}
@@ -46,7 +62,11 @@ export function Footer() {
             <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 mt-1 text-primary" />
-                <span>One World Trade Center, Suite 85<br />New York, NY 10007</span>
+                <span>
+                  One World Trade Center, Suite 85
+                  <br />
+                  New York, NY 10007
+                </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-primary" />
@@ -67,18 +87,34 @@ export function Footer() {
                 className="bg-slate-900 border-slate-800 text-white placeholder:text-slate-600 focus-visible:ring-primary"
                 placeholder="Email address"
               />
-              <Button className="w-full bg-white text-black hover:bg-slate-200">
-                Subscribe
-              </Button>
+              <Button className="w-full bg-white text-black hover:bg-slate-200">Subscribe</Button>
             </div>
           </div>
         </div>
         <div className="mt-16 pt-8 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
           <p>© 2024 LexCorp Global Partners LLP. All rights reserved.</p>
-          <div className="flex gap-6">
-            <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link to="/about" className="hover:text-white transition-colors">About Firm</Link>
-            <Link to="#" className="hover:text-white transition-colors">Attorney Advertising</Link>
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
+            {/* QA: Verify visible on mobile/desktop; opens in new tab; no tracking/analytics added. */}
+            <a
+              href="https://leverageai.network"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LeverageAI network - opens in new tab"
+              className="text-slate-400 hover:text-[#B45309] transition-colors"
+            >
+              Powered by LEVERAGEAI LLC
+            </a>
+            <div className="flex gap-6">
+              <Link to="/privacy" className="hover:text-white transition-colors">
+                Privacy Policy
+              </Link>
+              <Link to="/about" className="hover:text-white transition-colors">
+                About Firm
+              </Link>
+              <Link to="#" className="hover:text-white transition-colors">
+                Attorney Advertising
+              </Link>
+            </div>
           </div>
         </div>
       </div>

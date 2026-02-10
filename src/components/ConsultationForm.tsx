@@ -77,7 +77,7 @@ export function ConsultationForm({ open, onOpenChange, page, meta }: Consultatio
       return next;
     });
     prefillAppliedRef.current = true;
-  }, [open, meta?.prefill?.reason, meta?.prefill?.name, meta?.prefill?.contact]);
+  }, [open, meta?.prefill]);
   const setField = useCallback((field: keyof FormState, value: string) => {
     setValues((prev) => ({ ...prev, [field]: value }));
     setErrors((prev) => {
@@ -208,10 +208,7 @@ export function ConsultationForm({ open, onOpenChange, page, meta }: Consultatio
               ) : null}
             </div>
             {status === "error" ? (
-              <div
-                className="rounded-xl border border-destructive/30 bg-destructive/5 p-4 text-sm text-foreground"
-                role="alert"
-              >
+              <div className="rounded-xl border border-destructive/30 bg-destructive/5 p-4 text-sm text-foreground" role="alert">
                 <div className="flex gap-3">
                   <XCircle className="mt-0.5 h-5 w-5 text-destructive" />
                   <div className="space-y-1">
@@ -246,8 +243,7 @@ export function ConsultationForm({ open, onOpenChange, page, meta }: Consultatio
               </Button>
             </div>
             <p className="text-xs text-muted-foreground">
-              By submitting, you agree to be contacted by LexCorp regarding your inquiry. Do not send sensitive or
-              privileged information through this form.
+              By submitting, you agree to be contacted by LexCorp regarding your inquiry. Do not send sensitive or privileged information through this form.
             </p>
           </form>
         </motion.div>
@@ -289,11 +285,7 @@ export function ConsultationForm({ open, onOpenChange, page, meta }: Consultatio
   );
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent
-        aria-labelledby={titleId}
-        aria-describedby={descId}
-        className="max-w-lg rounded-3xl p-0 overflow-hidden border-border/70 shadow-2xl"
-      >
+      <DialogContent aria-labelledby={titleId} aria-describedby={descId} className="max-w-lg rounded-3xl p-0 overflow-hidden border-border/70 shadow-2xl">
         <div className="relative">
           <div className="absolute inset-0 bg-gradient-to-br from-[#B45309]/10 via-transparent to-transparent pointer-events-none" />
           <div className="p-6 sm:p-8 relative">
