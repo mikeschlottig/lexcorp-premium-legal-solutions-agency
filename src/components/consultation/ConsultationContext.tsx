@@ -17,6 +17,7 @@ export function ConsultationProvider({ children }: { children: React.ReactNode }
         page,
         source: nextMeta?.source ?? "unknown",
         context: nextMeta?.context ?? null,
+        prefill: nextMeta?.prefill ?? null,
       });
     },
     [pathname],

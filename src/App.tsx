@@ -4,6 +4,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Toaster } from "@/components/ui/sonner";
 import { ConsultationProvider } from "@/components/consultation/ConsultationContext";
+import { ChatBubble } from "@/components/chatbot/ChatBubble";
 export function App() {
   const { pathname } = useLocation();
   // Scroll to top on route change
@@ -19,6 +20,7 @@ export function App() {
         </main>
         <Footer />
         <Toaster richColors position="top-right" />
+        <ChatBubble />
       </div>
     </ConsultationProvider>
   );

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Loader2, XCircle, CheckCircle2, Send, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -18,6 +18,11 @@ import {
 export type ConsultationMeta = {
   source?: string;
   context?: Record<string, unknown>;
+  prefill?: {
+    reason?: string;
+    name?: string;
+    contact?: string;
+  };
 };
 type ConsultationFormProps = {
   open: boolean;
@@ -44,6 +49,7 @@ export function ConsultationForm({ open, onOpenChange, page, meta }: Consultatio
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<SubmitStatus>("idle");
   const [submitError, setSubmitError] = useState<string>("");
+  const prefillAppliedRef = useRef(false);
   const titleId = useMemo(() => "consultation-dialog-title", []);
   const descId = useMemo(() => "consultation-dialog-desc", []);
   const reset = useCallback(() => {
@@ -51,12 +57,27 @@ export function ConsultationForm({ open, onOpenChange, page, meta }: Consultatio
     setErrors({});
     setStatus("idle");
     setSubmitError("");
+    prefillAppliedRef.current = false;
   }, []);
   useEffect(() => {
     if (!open) {
       reset();
     }
   }, [open, reset]);
+  // Prefill reason (and optionally other fields) once per open-cycle.
+  useEffect(() => {
+    if (!open) return;
+    const prefill = meta?.prefill;
+    if (!prefill || prefillAppliedRef.current) return;
+    setValues((prev) => {
+      const next: FormState = { ...prev };
+      if (prefill.name && !next.name.trim()) next.name = prefill.name;
+      if (prefill.contact && !next.contact.trim()) next.contact = prefill.contact;
+      if (prefill.reason && !next.reason.trim()) next.reason = prefill.reason;
+      return next;
+    });
+    prefillAppliedRef.current = true;
+  }, [open, meta?.prefill?.reason, meta?.prefill?.name, meta?.prefill?.contact]);
   const setField = useCallback((field: keyof FormState, value: string) => {
     setValues((prev) => ({ ...prev, [field]: value }));
     setErrors((prev) => {
