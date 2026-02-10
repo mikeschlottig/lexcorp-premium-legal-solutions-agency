@@ -4,7 +4,7 @@ import { BLOG_POSTS } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Calendar, Share2, Facebook, Twitter, Linkedin, Clock } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { useConsultation } from "@/components/consultation/ConsultationContext";
+import { useConsultation } from "@/components/consultation/useConsultation";
 function FullBleed({ children }: { children: React.ReactNode }) {
   return <div className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen">{children}</div>;
 }

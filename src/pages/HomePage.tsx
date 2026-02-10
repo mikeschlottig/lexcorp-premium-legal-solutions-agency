@@ -6,7 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { SectionHeader } from "@/components/ui/section-header";
 import { SERVICES, TESTIMONIALS } from "@/lib/data";
 import { Link } from "react-router-dom";
-import { useConsultation } from "@/components/consultation/ConsultationContext";
+import { useConsultation } from "@/components/consultation/useConsultation";
 const iconMap: Record<string, LucideIcon> = {
   Briefcase,
   ShieldCheck,

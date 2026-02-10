@@ -5,7 +5,7 @@ import { SERVICES, CASE_STUDIES } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { SectionHeader } from "@/components/ui/section-header";
-import { useConsultation } from "@/components/consultation/ConsultationContext";
+import { useConsultation } from "@/components/consultation/useConsultation";
 const iconMap: Record<string, LucideIcon> = {
   Briefcase,
   ShieldCheck,

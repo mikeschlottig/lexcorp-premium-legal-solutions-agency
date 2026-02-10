@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { useConsultation } from "@/components/consultation/ConsultationContext";
+import { useConsultation } from "@/components/consultation/useConsultation";
 const NAV_LINKS = [
   { name: "Home", path: "/" },
   { name: "Services", path: "/services" },
