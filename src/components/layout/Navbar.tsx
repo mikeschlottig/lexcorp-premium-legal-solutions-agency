@@ -4,7 +4,15 @@ import { motion } from "framer-motion";
 import { Menu, Gavel } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetClose,
+  SheetHeader,
+  SheetTitle,
+  SheetDescription,
+} from "@/components/ui/sheet";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { useConsultation } from "@/components/consultation/useConsultation";
 const NAV_LINKS = [
@@ -87,7 +95,13 @@ export function Navbar() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-full sm:w-[400px] border-l-border/50 bg-background/95 backdrop-blur-lg">
-                <div className="flex flex-col gap-10 mt-16 px-6">
+                <SheetHeader className="mt-8 px-6">
+                  <SheetTitle className="font-serif tracking-tight">Navigation</SheetTitle>
+                  <SheetDescription className="text-muted-foreground">
+                    Explore LexCorp services, firm details, and legal insights.
+                  </SheetDescription>
+                </SheetHeader>
+                <div className="flex flex-col gap-10 mt-10 px-6">
                   {NAV_LINKS.map((link) => (
                     <SheetClose asChild key={link.path}>
                       <Link

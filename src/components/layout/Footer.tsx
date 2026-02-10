@@ -74,7 +74,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-16 pt-8 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
-          <p>�� 2024 LexCorp Global Partners LLP. All rights reserved.</p>
+          <p>© 2024 LexCorp Global Partners LLP. All rights reserved.</p>
           <div className="flex gap-6">
             <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link to="/about" className="hover:text-white transition-colors">About Firm</Link>
