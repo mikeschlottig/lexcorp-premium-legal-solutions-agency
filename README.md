@@ -1,6 +1,6 @@
 # Lex Corp Agency
 
-[![[cloudflarebutton]]](https://deploy.workers.cloudflare.com/)
+[![[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/mikeschlottig/lexcorp-premium-legal-solutions-agency)]](https://deploy.workers.cloudflare.com/)
 
 A modern, full-stack agency website template built on Cloudflare Workers and Pages. Features a responsive React frontend with Shadcn UI components, Tailwind CSS styling, and a Hono-powered API backend. Perfect for agencies, portfolios, or landing pages with seamless edge deployment.
 
@@ -79,7 +79,7 @@ bun run deploy
 
 This builds the frontend and deploys via Wrangler.
 
-**[cloudflarebutton]**
+**[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/mikeschlottig/lexcorp-premium-legal-solutions-agency)**
 
 ### Manual Deployment
 
